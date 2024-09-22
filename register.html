@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户注册</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <h2>用户注册</h2>
+  <form action="http://127.0.0.1:8080/register" method="post" onsubmit="return validateRegisterForm()">
+    <label for="username">用户名：</label><br>
+    <input type="text" id="username" name="username" autocomplete="username">
+    <label for="password">密码：</label><br>
+    <input type="password" id="password" name="password" autocomplete="new-password">
+    <input type="submit" value="注册">
+  </form>
+  <a href="/">返回首页</a>
+  <a href="/login">去登录</a>
+</body>
+
+</html>
