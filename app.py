@@ -1,10 +1,9 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, send_from_directory
 import os
 
 registered_users = [{'username': '豆包豆包', 'password': 'Zy071018'}]  # 模拟已注册用户列表
 
 app = Flask(__name__, template_folder='F:\\web_project')  # 在代码开头创建应用实例
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -54,6 +53,10 @@ def welcome():
 @app.route('/login_failed')
 def login_failed():
     return render_template('login_failed.html')
+
+@app.route('/<path:filename>')
+def serve_static_files(filename):
+    return send_from_directory(app.static_folder, filename)
 
 if __name__ == '__main__':
     app.run(debug=True, port=8080)
